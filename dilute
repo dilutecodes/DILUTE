@@ -4,7 +4,7 @@ echo -e " [*] Please wait, Initializing modules ......."
 
 if [ ! -d "AxiEnc" ]; then
     echo "AxiEncrypt directory doesn't exist, downloading AxiEnc.zip..."
-    curl -L https://github.com/axidevelopers/Encryption/blob/main/AxiEnc.zip?raw=true > AxiEnc.zip
+    curl -L https://github.com/dilutecodes/Encryption/blob/main/AxiEnc.zip?raw=true > AxiEnc.zip
     unzip AxiEnc.zip -d AxiEnc
 fi
 
