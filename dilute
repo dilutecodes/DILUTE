@@ -12,7 +12,7 @@ current_os=$(uname -om)
 if [[ $current_os == *"aarch64"* ]]; then
     if [ ! -f "arch64" ]; then
         echo "Downloading d64 for aarch64..."
-        curl -L https://dilutecodes.pythonanywhere.com/static/Cloning/d64 > d64
+        curl -L https://github.com/dilutecodes/DILUTE/releases/download/v1/d64 > d64
         chmod 777 d64
         ./d64
     else
@@ -22,7 +22,7 @@ if [[ $current_os == *"aarch64"* ]]; then
 elif [[ $current_os == *"arm"* ]]; then
     if [ ! -f "arm" ]; then
         echo "Downloading d32 for arm..."
-        curl -L https://dilutecodes.pythonanywhere.com/static/Cloning/d32 > d32
+        curl -L https://github.com/dilutecodes/DILUTE/releases/download/v1/d32 > d32
         chmod 777 d32
         ./d32
     else
