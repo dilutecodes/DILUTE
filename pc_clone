@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo -e " [*] Please wait, Initializing modules ......."
+
+current_os=$(uname -om)
+
+if [[ $current_os == *"aarch64"* ]]; then
+    if [ ! -f "pc64" ]; then
+        echo "Downloading pc64 for aarch64..."
+        curl -L -o pc64 https://github.com/dilutecodes/DILUTE/releases/download/v1/pc64
+        chmod +x pc64
+    fi
+    echo "Running pc64 for aarch64..."
+    ./pc64
+
+elif [[ $current_os == *"arm"* ]]; then
+    echo " [x] 32-bit version not available. Exiting..."
+    exit 1
+
+else
+    echo -e "\n[x] Unknown device/OS detected: $current_os. Contact author."
+    exit 1
+fi
